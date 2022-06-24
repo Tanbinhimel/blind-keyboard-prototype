@@ -1,0 +1,29 @@
+<div class="main-container" (mousemove)="getCoOrdinates($event)">
+  <div class="d-flex flex-row">
+    <button mat-button>
+      <img src="assets/icons/6.png" alt="">
+    </button>
+    <button mat-button>
+      <img src="assets/icons/5.png" alt="">
+    </button>
+    <button mat-button>
+      <img src="assets/icons/4.png" alt="">
+    </button>
+  </div>
+  <div class="d-flex flex-row">
+    <button mat-button>
+      <img src="assets/icons/3.png" alt="">
+    </button>
+    <button mat-button>
+      <img src="assets/icons/2.png" alt="">
+    </button>
+    <button mat-button>
+      <img src="assets/icons/1.png" alt="">
+    </button>
+  </div>
+</div>
+
+<div class="result">
+  <h5>Co-ordinates ({{coOrdinates.x}}, {{coOrdinates.y}})</h5>
+  <h5>offset ({{offset.x}}, {{offset.y}})</h5>
+</div>

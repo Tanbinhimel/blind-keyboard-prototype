@@ -1,0 +1,26 @@
+.main-container {
+  position: center;
+  cursor: pointer;
+}
+
+button {
+  font-size: xxx-large;
+  height: 50vh;
+  width: 30vw;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+}
+
+img{
+  height: 50px;
+  width: 50px;
+  transform: rotate(90deg);
+}
+
+.result {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 30%;
+  transform: rotate(90deg);
+}
