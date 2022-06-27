@@ -23,6 +23,8 @@
   </div>
 </div>
 
-<div class="result" *ngFor="let touch of touches">
-
+<div class="result">
+  <div *ngFor="let touch of touches; index as i">
+    <p>Touch No# {{i + 1}}: ({{touch.clientX | number}}, {{touch.clientY | number}})</p>
+  </div>
 </div>
