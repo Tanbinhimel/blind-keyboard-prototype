@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class CanvasComponent implements OnInit {
   coOrdinates: { x: number, y: number };
   offset: { x: number, y: number };
+  touches: any;
 
   constructor() {
     this.coOrdinates = {x: 0, y: 0};
@@ -17,11 +18,8 @@ export class CanvasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getCoOrdinates($event: MouseEvent) {
-      this.coOrdinates.x = $event.clientX;
-      this.coOrdinates.y = $event.clientY;
-
-      this.offset.x = $event.offsetX;
-      this.offset.y = $event.offsetY;
+  getCoOrdinates($event: TouchEvent) {
+    this.touches = $event.touches;
+    console.log(this.touches);
   }
 }

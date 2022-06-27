@@ -1,4 +1,4 @@
-<div class="main-container" (mousemove)="getCoOrdinates($event)">
+<div class="main-container" (touchstart)="getCoOrdinates($event)">
   <div class="d-flex flex-row">
     <button mat-button>
       <img src="assets/icons/6.png" alt="">
@@ -23,7 +23,6 @@
   </div>
 </div>
 
-<div class="result">
-  <h5>Co-ordinates ({{coOrdinates.x}}, {{coOrdinates.y}})</h5>
-  <h5>offset ({{offset.x}}, {{offset.y}})</h5>
+<div class="result" *ngFor="let touch of touches">
+
 </div>
