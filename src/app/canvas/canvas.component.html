@@ -1,30 +1,30 @@
-<div class="main-container" (touchstart)="getCoOrdinates($event)">
+<div class="main-container" (touchstart)="getTouches($event)">
   <div class="d-flex flex-row">
-    <button mat-button>
-      <img src="assets/icons/6.png" alt="">
-    </button>
-    <button mat-button>
-      <img src="assets/icons/5.png" alt="">
-    </button>
-    <button mat-button>
-      <img src="assets/icons/4.png" alt="">
-    </button>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="6" src="assets/icons/6.png" alt="">
+    </div>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="5" src="assets/icons/5.png" alt="">
+    </div>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="4" src="assets/icons/4.png" alt="">
+    </div>
   </div>
   <div class="d-flex flex-row">
-    <button mat-button>
-      <img src="assets/icons/3.png" alt="">
-    </button>
-    <button mat-button>
-      <img src="assets/icons/2.png" alt="">
-    </button>
-    <button mat-button>
-      <img src="assets/icons/1.png" alt="">
-    </button>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="3" src="assets/icons/3.png" alt="">
+    </div>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="2" src="assets/icons/2.png" alt="">
+    </div>
+    <div class="container-value d-flex flex-row align-items-center justify-content-center">
+      <img id="1" src="assets/icons/1.png" alt="">
+    </div>
   </div>
 </div>
 
 <div class="result">
-  <div *ngFor="let touch of touches; index as i">
-    <p>Touch No# {{i + 1}}: ({{touch.clientX | number}}, {{touch.clientY | number}})</p>
+  <div *ngIf="letter">
+    <h1>{{letter}}</h1>
   </div>
 </div>

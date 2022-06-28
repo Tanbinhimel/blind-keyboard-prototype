@@ -1,19 +1,10 @@
 .main-container {
   position: center;
-  cursor: pointer;
 }
 
-button {
-  font-size: xxx-large;
-  height: 50vh;
-  width: 30vw;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
-}
-
-img{
-  height: 50px;
-  width: 50px;
+img {
+  height: 100px;
+  width: 100px;
   transform: rotate(90deg);
 }
 
@@ -21,6 +12,26 @@ img{
   position: absolute;
   z-index: 100;
   top: 50%;
-  left: 30%;
+  left: 50%;
   transform: rotate(90deg);
+}
+
+.container-value {
+  height: 50vh;
+  width: 30vw;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+}
+
+h1{
+  font-size: 6rem;
+}
+
+.letter{
+  height: 100px;
+}
+
+
+.result1{
+  z-index: 100;
 }
