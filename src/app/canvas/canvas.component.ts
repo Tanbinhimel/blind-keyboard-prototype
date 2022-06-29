@@ -102,4 +102,8 @@ export class CanvasComponent implements OnInit {
     }
     return true;
   }
+
+  resetLetter() {
+    this.letter = '';
+  }
 }
