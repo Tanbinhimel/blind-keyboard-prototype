@@ -62,7 +62,6 @@ export class CanvasComponent implements OnInit {
     const touchIdList = this.getTouchIdList(this.touches);
     this.getCharacter(touchIdList);
     this.touchIdList = touchIdList;
-    console.log(touchIdList);
   }
 
   getTouchIdList(touches: any) {
@@ -84,7 +83,6 @@ export class CanvasComponent implements OnInit {
 
   private getCharacter(touchIdList: any[]) {
     this.mapValue.forEach(map => {
-      console.log('res', touchIdList, map.key);
       if (this.isArrayEqual(map.key, touchIdList)) {
         this.letter = map.value;
       }
@@ -101,5 +99,9 @@ export class CanvasComponent implements OnInit {
       }
     }
     return true;
+  }
+
+  clearLetter() {
+    this.letter = '';
   }
 }
