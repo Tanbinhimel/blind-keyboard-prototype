@@ -2,6 +2,10 @@ const VALID_TIME = 100;
 const THRESHOLD_ANGLE_VALUE = 100;
 
 export default function swipeUp(swipeTouches: any) {
+  if (swipeTouches.length < 2) {
+    return false;
+  }
+
   const startTouch = swipeTouches[0];
   const endTouch = swipeTouches[swipeTouches.length - 1];
 
