@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import swipeUp from "../../utils/swipe";
 
 @Component({
   selector: 'app-canvas',
@@ -48,8 +49,10 @@ export class CanvasComponent implements OnInit {
     {key: '6', value: [150, 50, 50, 50, 50]},
 
   ]
+  swipeTouches: any;
 
   constructor() {
+    this.swipeTouches = [];
   }
 
   ngOnInit(): void {
@@ -70,7 +73,7 @@ export class CanvasComponent implements OnInit {
     for (const touch of touches) {
       if (touch.target.id) {
         this.morseCode.forEach(code => {
-          if(code.key == touch.target.id){
+          if (code.key == touch.target.id) {
             window.navigator.vibrate(code.value);
           }
         })
@@ -103,5 +106,23 @@ export class CanvasComponent implements OnInit {
 
   resetLetter() {
     this.letter = '';
+    const isSwipedUp = swipeUp(this.swipeTouches);
+    console.log(isSwipedUp);
+    this.unsetSwipeTouches();
+  }
+
+  onSwipe($event: TouchEvent) {
+    const {touches, timeStamp} = $event;
+    const value = {
+      x: touches[0].clientX,
+      y: touches[0].clientY
+    };
+    this.swipeTouches.push({value, timeStamp});
+  }
+
+  private unsetSwipeTouches() {
+    setTimeout(() => {
+      this.swipeTouches = [];
+    }, 1000)
   }
 }
