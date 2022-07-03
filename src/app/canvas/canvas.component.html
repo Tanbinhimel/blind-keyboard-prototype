@@ -1,30 +1,32 @@
-<div class="main-container" (touchstart)="getTouches($event)" (touchend)="onTouchEnd()" (touchmove)="onSwipe($event)">
-  <div class="d-flex flex-row">
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="6" src="assets/icons/6.png" alt="">
-    </div>
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="5" src="assets/icons/5.png" alt="">
-    </div>
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="4" src="assets/icons/4.png" alt="">
-    </div>
+<div class="container-main">
+  <div class="container-result">
+    <input class="container-result-input" [(ngModel)]="sentence" disabled>
   </div>
-  <div class="d-flex flex-row">
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="3" src="assets/icons/3.png" alt="">
-    </div>
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="2" src="assets/icons/2.png" alt="">
-    </div>
-    <div class="container-value d-flex flex-row align-items-center justify-content-center">
-      <img id="1" src="assets/icons/1.png" alt="">
-    </div>
-  </div>
-</div>
-
-<div class="result">
-  <div *ngIf="letter">
-    <h1>{{letter}}</h1>
+  <div class="container-keyboard" (touchstart)="getTouches($event)" (touchend)="onTouchEnd()"
+       (touchmove)="onSwipe($event)">
+      <div class="d-flex flex-row-reverse justify-content-center">
+        <div class="d-flex flex-row container-image">
+          <img id="1" src="assets/icons/1.png" alt="">
+        </div>
+        <div class="d-flex flex-row container-image">
+          <img id="4" src="assets/icons/4.png" alt="">
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse justify-content-center">
+        <div class="d-flex flex-row container-image">
+          <img id="2" src="assets/icons/2.png" alt="">
+        </div>
+        <div class="d-flex flex-row container-image">
+          <img id="5" src="assets/icons/5.png" alt="">
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse justify-content-center">
+        <div class="d-flex flex-row container-image">
+          <img id="3" src="assets/icons/3.png" alt="">
+        </div>
+        <div class="d-flex flex-row container-image">
+          <img id="6" src="assets/icons/6.png" alt="">
+        </div>
+      </div>
   </div>
 </div>

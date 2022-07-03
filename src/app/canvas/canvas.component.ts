@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import swipeUp from "../../utils/swipe";
 import * as _ from 'lodash';
 import getMapValue from "../../utils/data";
+import {swipeDown, swipeUp} from "../../utils/swipe";
 
 @Component({
   selector: 'app-canvas',
@@ -13,7 +13,6 @@ export class CanvasComponent implements OnInit {
   touchIdList: any;
   letter: string | undefined;
   sentence: string;
-
 
 
   morseCode = [
@@ -34,9 +33,11 @@ export class CanvasComponent implements OnInit {
 
   ngOnInit(): void {
     this.letter = '';
+    console.log(window.screen);
   }
 
   getTouches(event: TouchEvent) {
+    console.log(this.touches);
     this.touches = event.touches;
     event.preventDefault();
     const touchIdList = this.getTouchIdList(this.touches);
@@ -70,26 +71,29 @@ export class CanvasComponent implements OnInit {
     });
   }
 
-  isArrayEqual(array1: any[], array2: any[]) {
-    if (array1.length !== array2.length) {
-      return false;
-    }
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] !== array2[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
-
   onTouchEnd() {
+    if (this.letter) {
+      this.sentence += this.letter;
+    }
     this.letter = '';
+    const isSwipedDown = swipeDown(this.swipeTouches);
+    console.log(isSwipedDown);
+
+    if (isSwipedDown) {
+      this.sentence += ' ';
+    }
+
     const isSwipedUp = swipeUp(this.swipeTouches);
-    console.log(isSwipedUp);
+    console.log('up', isSwipedUp);
+    if(isSwipedUp){
+      this.sentence = this.sentence.slice(0, -1);
+    }
+    console.log('up', this.sentence);
     this.unsetSwipeTouches();
   }
 
   onSwipe($event: TouchEvent) {
+    console.log('swiped');
     const {touches, timeStamp} = $event;
     const value = {
       x: touches[0].clientX,
@@ -103,4 +107,5 @@ export class CanvasComponent implements OnInit {
       this.swipeTouches = [];
     }, 1000)
   }
+
 }

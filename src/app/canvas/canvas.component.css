@@ -1,37 +1,36 @@
-.main-container {
-  position: center;
+.container-main{
+  height: 100vw;
+  width: 100vh;
+}
+
+.container-result{
+  width: inherit;
+  height: 10vh;
+}
+
+.container-result-input{
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: black;
+  width: inherit;
+  height: inherit;
+}
+
+.container-keyboard{
+  width: inherit;
+  height: 90vh;
+}
+
+
+.container-image{
+  height: 25vw;
+  width: 40vh;
+  margin: 1vw 1.5vw;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
-  height: 100px;
-  width: 100px;
-  transform: rotate(90deg);
-}
-
-.result {
-  position: absolute;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  transform: rotate(90deg);
-}
-
-.container-value {
-  height: 50vh;
-  width: 30vw;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
-}
-
-h1{
-  font-size: 6rem;
-}
-
-.letter{
-  height: 100px;
-}
-
-
-.result1{
-  z-index: 100;
+  height: 7rem;
+  width: 7rem;
 }
