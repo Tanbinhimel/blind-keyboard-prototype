@@ -18,8 +18,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /*@media only screen and (orientation:landscape){*/
 /*  body {*/
+/*    background-color: black;*/
 /*    height: 100vh;*/
-/*    !*transform: rotate(90deg);*!*/
+/*    width: 100vw;*/
 /*  }*/
 /*}*/
 
