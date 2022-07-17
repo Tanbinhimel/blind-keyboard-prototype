@@ -6,6 +6,7 @@ import {CanvasComponent} from './canvas/canvas.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FormsModule} from "@angular/forms";
         BrowserAnimationsModule,
         MatButtonModule,
         FormsModule,
+        NgbModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
