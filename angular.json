@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "blind-keyboard-prototype:build:production",
+            "firebaseProject": "blind-keyboard-prototype",
+            "firebaseHostingSite": "blind-keyboard-prototype"
+          }
         }
       }
     }

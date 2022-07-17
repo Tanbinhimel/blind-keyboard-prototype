@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {swipeDown, swipeUp} from "../../utils/swipe";
 import {getCharacter, getFormattedSwipedTouches, getFormattedTouches} from "../../utils/utils";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-canvas',
@@ -13,7 +15,7 @@ export class CanvasComponent implements OnInit {
   swipeTouches: any;
   result: any;
 
-  constructor() {
+  constructor(private db: AngularFirestore) {
     this.swipeTouches = [];
     this.sentence = '';
     this.result = [];
@@ -41,7 +43,11 @@ export class CanvasComponent implements OnInit {
     const isSwipedDown = swipeDown(this.swipeTouches);
     if (isSwipedDown) {
       this.sentence += ' ';
-      this.result.push({touches: getFormattedSwipedTouches(this.swipeTouches), value: 'ADD ' + 'SPACE', touchType: 'swipe'});
+      this.result.push({
+        touches: getFormattedSwipedTouches(this.swipeTouches),
+        value: 'ADD ' + 'SPACE',
+        touchType: 'swipe'
+      });
       console.log('result:', this.result);
       this.touches = [];
       this.swipeTouches = [];
@@ -51,7 +57,11 @@ export class CanvasComponent implements OnInit {
     if (isSwipedUp) {
       const deleteChar = this.sentence[this.sentence.length - 1];
       this.sentence = this.sentence.slice(0, -1);
-      this.result.push({touches: getFormattedSwipedTouches(this.swipeTouches), value: 'DELETE ' + deleteChar, touchType: 'swipe'});
+      this.result.push({
+        touches: getFormattedSwipedTouches(this.swipeTouches),
+        value: 'DELETE ' + deleteChar,
+        touchType: 'swipe'
+      });
       console.log('result:', this.result);
       this.touches = [];
       this.swipeTouches = [];
@@ -68,6 +78,9 @@ export class CanvasComponent implements OnInit {
   }
 
   onClickSend() {
-
+    const dateTime = new Date();
+    console.log(dateTime);
+    // this.db.collection('touch-list').doc('1').set({value: '1'}).then(r => console.log(r));
+    this.db.collection('touch-list').doc(dateTime.toString()).set({result: this.result}).then(r => console.log(r));
   }
 }

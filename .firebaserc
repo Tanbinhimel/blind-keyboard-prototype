@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "blind-keyboard-prototype": {
+      "hosting": {
+        "blind-keyboard-prototype": [
+          "blind-keyboard-prototype"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "blind-keyboard-prototype"
+  }
+}
