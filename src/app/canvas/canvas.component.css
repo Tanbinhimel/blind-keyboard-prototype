@@ -18,6 +18,12 @@
     height: inherit;
   }
 
+  .button-send{
+    position: absolute;
+    top: 4vw;
+    left: 90vh;
+  }
+
   .container-keyboard{
     width: inherit;
     height: 90vh;
@@ -26,9 +32,10 @@
 
   .container-image{
     height: 25vw;
-    width: 40vh;
+    width: 50vh;
     align-items: center;
     justify-content: center;
+    border: 1px black solid;
   }
 
   img {
@@ -54,8 +61,12 @@
     font-size: 1.5rem;
     font-weight: 400;
     color: black;
-    width: inherit;
+    /*width: inherit;*/
     height: inherit;
+  }
+
+  .button-send{
+
   }
 
   .container-keyboard{
