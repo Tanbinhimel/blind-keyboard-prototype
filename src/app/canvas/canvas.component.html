@@ -1,30 +1,31 @@
 <div class="container-main">
   <div class="container-result">
-    <input class="container-result-input" [(ngModel)]="sentence" disabled>
+    <input class="container-result-input" [(ngModel)]="sentence" placeholder="Text..." disabled>
+    <button class="btn btn-outline-dark button-send" (click)="onClickSend()">send</button>
   </div>
-  <div class="container-keyboard" (touchstart)="getTouches($event)" (touchend)="onTouchEnd()"
+  <div class="container-keyboard" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd()"
        (touchmove)="onSwipe($event)">
       <div class="d-flex flex-row-reverse justify-content-center">
-        <div class="d-flex flex-row container-image">
+        <div id="1" class="d-flex flex-row container-image">
           <img id="1" src="assets/icons/1.png" alt="">
         </div>
-        <div class="d-flex flex-row container-image">
+        <div id="4" class="d-flex flex-row container-image">
           <img id="4" src="assets/icons/4.png" alt="">
         </div>
       </div>
       <div class="d-flex flex-row-reverse justify-content-center">
-        <div class="d-flex flex-row container-image">
+        <div id="2" class="d-flex flex-row container-image">
           <img id="2" src="assets/icons/2.png" alt="">
         </div>
-        <div class="d-flex flex-row container-image">
+        <div id="5" class="d-flex flex-row container-image">
           <img id="5" src="assets/icons/5.png" alt="">
         </div>
       </div>
       <div class="d-flex flex-row-reverse justify-content-center">
-        <div class="d-flex flex-row container-image">
+        <div id="3" class="d-flex flex-row container-image">
           <img id="3" src="assets/icons/3.png" alt="">
         </div>
-        <div class="d-flex flex-row container-image">
+        <div id="6" class="d-flex flex-row container-image">
           <img id="6" src="assets/icons/6.png" alt="">
         </div>
       </div>
