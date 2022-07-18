@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {swipeDown, swipeUp} from "../../utils/swipe";
 import {getCharacter, getFormattedSwipedTouches, getFormattedTouches} from "../../utils/utils";
-import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
@@ -42,6 +41,7 @@ export class CanvasComponent implements OnInit {
 
     const isSwipedDown = swipeDown(this.swipeTouches);
     if (isSwipedDown) {
+      window.navigator.vibrate(100);
       this.sentence += ' ';
       this.result.push({
         touches: getFormattedSwipedTouches(this.swipeTouches),
@@ -55,6 +55,7 @@ export class CanvasComponent implements OnInit {
 
     const isSwipedUp = swipeUp(this.swipeTouches);
     if (isSwipedUp) {
+      window.navigator.vibrate(100);
       const deleteChar = this.sentence[this.sentence.length - 1];
       this.sentence = this.sentence.slice(0, -1);
       this.result.push({
@@ -78,9 +79,16 @@ export class CanvasComponent implements OnInit {
   }
 
   onClickSend() {
-    const dateTime = new Date();
-    console.log(dateTime);
-    // this.db.collection('touch-list').doc('1').set({value: '1'}).then(r => console.log(r));
-    this.db.collection('touch-list').doc(dateTime.toString()).set({result: this.result}).then(r => console.log(r));
+    const date = new Date();
+    const {height, width} = window.screen;
+    console.log(date);
+    if (this.result !== '') {
+      this.db.collection('touch-list').doc(date.toString()).set({
+        touchInfo: this.result,
+        screenSize: {height, width}
+      }).then(r => console.log(r));
+      this.result = [];
+      this.sentence = '';
+    }
   }
 }
